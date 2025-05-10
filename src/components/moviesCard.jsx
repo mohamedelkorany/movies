@@ -12,7 +12,7 @@ export const MoviesCard = (props) => {
   };
 
   return (
-    <Card className="h-100 flex-column d-flex">
+    <Card className="h-100 flex-column d-flex carditem" >
       <Card.Img
         variant="top"
         src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
