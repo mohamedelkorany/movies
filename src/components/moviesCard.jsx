@@ -2,10 +2,15 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { FaHeart } from "react-icons/fa";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const MoviesCard = (props) => {
   const { movie } = props;
   const [isFavorited, setIsFavorited] = useState(false);
+  const navigate = useNavigate();
+  const handleCardClick = (id) => {
+    navigate(`/MoviesDetails/${movie.id}`);
+  };
 
   const handleFavoriteClick = () => {
     setIsFavorited(!isFavorited);
@@ -22,6 +27,7 @@ export const MoviesCard = (props) => {
         <Card.Text></Card.Text>
         <div className="container">
           <Button
+          onClick={() => handleCardClick(movie.id)}
             className="btn-sm px-3 py-1 rounded-4 shadow-sm fw-bold text-uppercase border-0"
             style={{
               background: "linear-gradient(135deg, #007bff, #0056b3)",
